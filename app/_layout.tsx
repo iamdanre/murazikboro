@@ -15,6 +15,8 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    GeistMono: require('../assets/fonts/GeistMono-Regular.ttf'),
+    MonaspaceNeon: require('../assets/fonts/MonaspaceNeonFrozen-Regular.ttf'),
   });
 
   useEffect(() => {

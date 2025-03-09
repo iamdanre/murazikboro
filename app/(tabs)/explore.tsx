@@ -6,6 +6,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { IconSymbol } from '@/components/ui/IconSymbol';
+import CodeSnippet from '@/components/CodeSnippet';
 
 export default function TabTwoScreen() {
   return (
@@ -50,6 +51,7 @@ export default function TabTwoScreen() {
           different screen densities
         </ThemedText>
         <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
+        <Image source={require('@/assets/images/icon.png')} style={styles.smallerImg} />
         <ExternalLink href="https://reactnative.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
@@ -64,6 +66,31 @@ export default function TabTwoScreen() {
         <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
+        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>geist mono 👻 </ThemedText>
+        <ThemedText style={{ fontFamily: 'GeistMono' }}>
+          {fontTest}
+          <i>{fontTestItalic}</i>
+        </ThemedText>
+        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>monospace neon 👽</ThemedText>
+        <ThemedText style={{ fontFamily: 'MonaspaceNeon' }}>
+          {fontTest}
+          <i>{fontTestItalic}</i>
+        </ThemedText>
+        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>default ✌️</ThemedText>
+        <ThemedText>
+          {fontTest}
+          <i>{fontTestItalic}</i>
+        </ThemedText>
+      </Collapsible>
+      <Collapsible title="code snippets">
+        <CodeSnippet
+          code={`
+            let x = 1
+            let y = 2
+            let z = x + y
+            console.info("if x is " + x + " and y is " + y + ", then z is " + z)
+            `}
+        />
       </Collapsible>
       <Collapsible title="Light and dark mode components">
         <ThemedText>
@@ -106,4 +133,26 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
   },
+  fontLabel: {
+    textAlign: 'center',
+    fontSize: 18,
+    marginBottom: 8,
+  },
+  smallerImg: {
+    alignSelf: 'center',
+    transform: [{ scale: 3 }],
+    width: 100,
+    height: 100,
+  },
 });
+
+const fontTest = `
+the affluent office staff ffucking finally figured out an efficient workflow
+= == === != !== .= += -= -> <-> -< >- </> < <= <| {| <=> <==> |} |> >= > <>
+* ** *** {} {{}} o O 0 S $ i I l L @ # ## $123,456.78 €6.9 £ ¥ ₹ ₩ ₽
+% ^ & && - -- + ++ | || / // ~- ~ ~~ -~ &= ? ! !! ' " ; : :: ][ [] , .
+áéíóú àèìòù äëïöü âêîôû ãõñç ©®™ /** */ <!--x-->
+AV Ta Te To Ty Wa Wo Ya Yo f) f. f, f- f' f" gy
+`;
+const fontTestItalic = `fi fl ff ffi ffl fj tf ft øå∂¨–•®ºœª¡!∞§¶≠“πß∂ƒ©˙∆˚¬…æΩ≈ç√∫˜µ≤≥÷ ⁄€‹›ﬂ‡·ˇ°‚Œ¨Á˝Ç˛ PÚ\n
+`;
