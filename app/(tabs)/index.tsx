@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform } from 'react-native'
+import { Image, Platform } from 'react-native'
 
 import { HelloWave } from '@/components/HelloWave'
 import ParallaxScrollView from '@/components/ParallaxScrollView'
@@ -7,15 +7,23 @@ import { ThemedView } from '@/components/ThemedView'
 
 export default function HomeScreen() {
     return (
-        <ParallaxScrollView headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }} headerImage={<Image source={require('@/assets/images/partial-react-logo.png')} style={styles.reactLogo} />}>
-            <ThemedView style={styles.titleContainer}>
+        <ParallaxScrollView 
+            headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }} 
+            headerImage={
+                <Image 
+                    source={require('@/assets/images/partial-react-logo.png')} 
+                    className="absolute bottom-0 left-0 h-44 w-72" 
+                />
+            }
+        >
+            <ThemedView className="flex-row items-center gap-2">
                 <ThemedText type="title">welcome!</ThemedText>
                 <ThemedText type="default">
                     {/* <HelloWave />ʘ̆ ᗜ ʘ̆<HelloWave reverse={true} /> */}
                     <HelloWave />( • ᴥ • )<HelloWave reverse={true} iterations={'infinite'} />
                 </ThemedText>
             </ThemedView>
-            <ThemedView style={styles.stepContainer}>
+            <ThemedView className="gap-2 mb-2">
                 <ThemedText type="subtitle">Step 1: Try it</ThemedText>
                 <ThemedText>
                     Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes. Press{' '}
@@ -29,11 +37,11 @@ export default function HomeScreen() {
                     to open developer tools.
                 </ThemedText>
             </ThemedView>
-            <ThemedView style={styles.stepContainer}>
+            <ThemedView className="gap-2 mb-2">
                 <ThemedText type="subtitle">Step 2: Explore</ThemedText>
                 <ThemedText>Tap the Explore tab to learn more about what's included in this starter app.</ThemedText>
             </ThemedView>
-            <ThemedView style={styles.stepContainer}>
+            <ThemedView className="gap-2 mb-2">
                 <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
                 <ThemedText>
                     When you're ready, run <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will
@@ -43,22 +51,3 @@ export default function HomeScreen() {
         </ParallaxScrollView>
     )
 }
-
-const styles = StyleSheet.create({
-    titleContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 8,
-    },
-    stepContainer: {
-        gap: 8,
-        marginBottom: 8,
-    },
-    reactLogo: {
-        height: 178,
-        width: 290,
-        bottom: 0,
-        left: 0,
-        position: 'absolute',
-    },
-})

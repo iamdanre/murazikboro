@@ -33,7 +33,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "nativewind/expo"
     ],
     "experiments": {
       "typedRoutes": true

@@ -1,4 +1,4 @@
-import { StyleSheet, Image, Platform } from 'react-native';
+import { Image, Platform } from 'react-native';
 
 import { Collapsible } from '@/components/Collapsible';
 import { ExternalLink } from '@/components/ExternalLink';
@@ -17,10 +17,10 @@ export default function TabTwoScreen() {
           size={310}
           color="#808080"
           name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
+          className="absolute -bottom-24 -left-9 text-gray-500"
         />
       }>
-      <ThemedView style={styles.titleContainer}>
+      <ThemedView className="flex-row gap-2">
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
       <ThemedText>This app includes example code to help you get started.</ThemedText>
@@ -50,8 +50,8 @@ export default function TabTwoScreen() {
           <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
           different screen densities
         </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <Image source={require('@/assets/images/icon.png')} style={styles.smallerImg} />
+        <Image source={require('@/assets/images/react-logo.png')} className="self-center" />
+        <Image source={require('@/assets/images/icon.png')} className="self-center w-24 h-24 scale-[3]" />
         <ExternalLink href="https://reactnative.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
@@ -66,17 +66,17 @@ export default function TabTwoScreen() {
         <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
-        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>geist mono 👻 </ThemedText>
+        <ThemedText type='defaultSemiBold' className="text-center text-lg mb-2">geist mono 👻 </ThemedText>
         <ThemedText style={{ fontFamily: 'GeistMono' }}>
           {fontTest}
           <i>{fontTestItalic}</i>
         </ThemedText>
-        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>monospace neon 👽</ThemedText>
+        <ThemedText type='defaultSemiBold' className="text-center text-lg mb-2">monospace neon 👽</ThemedText>
         <ThemedText style={{ fontFamily: 'MonaspaceNeon' }}>
           {fontTest}
           <i>{fontTestItalic}</i>
         </ThemedText>
-        <ThemedText type='defaultSemiBold' style={styles.fontLabel}>default ✌️</ThemedText>
+        <ThemedText type='defaultSemiBold' className="text-center text-lg mb-2">default ✌️</ThemedText>
         <ThemedText>
           {fontTest}
           <i>{fontTestItalic}</i>
@@ -121,30 +121,6 @@ export default function TabTwoScreen() {
     </ParallaxScrollView>
   );
 }
-
-const styles = StyleSheet.create({
-  headerImage: {
-    color: '#808080',
-    bottom: -90,
-    left: -35,
-    position: 'absolute',
-  },
-  titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  fontLabel: {
-    textAlign: 'center',
-    fontSize: 18,
-    marginBottom: 8,
-  },
-  smallerImg: {
-    alignSelf: 'center',
-    transform: [{ scale: 3 }],
-    width: 100,
-    height: 100,
-  },
-});
 
 const fontTest = `
 the affluent office staff ffucking finally figured out an efficient workflow
